@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.Period;
+
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,18 +12,21 @@ public class Person {
     Sex gender;
     String emailAddress;
     ArrayList<Person> peopleList = new ArrayList<>();
-    Person person;
+
 
     public enum Sex {
         MALE, FEMALE
     }
 
-    public Person (String name, LocalDate birthday, Sex gender, String emailAddress){
+
+
+    public Person(String name, LocalDate birthday, Sex gender, String emailAddress) {
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
         this.emailAddress = emailAddress;
     }
+
 
     public Person create (String name, LocalDate birthday, Sex gender, String emailAddress){
         Person createdPerson = new Person(name, birthday, gender, emailAddress);
@@ -33,6 +37,7 @@ public class Person {
     public ArrayList<Person> getPeopleList () {
         return peopleList;
     }
+
 
     public String getName() {
         return name;
@@ -68,6 +73,7 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
+
     public Integer getAge() {
         return Period.between(birthday, LocalDate.now()).getYears();
     }
@@ -84,6 +90,14 @@ public class Person {
                 p.printPerson();
             }
         }
+    }
+
+
+    public int getAge(LocalDate birthday) {
+        LocalDate today = LocalDate.now();
+        Integer p = Period.between(birthday, today).getYears();
+        // OR
+        return p;
     }
 
 }
