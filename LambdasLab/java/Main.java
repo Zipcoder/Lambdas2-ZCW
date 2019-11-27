@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Main {
 
-    private ArrayList<Person> roster;
 
     public static void printPersons(
             List<Person> roster, CheckPerson tester) {
@@ -20,6 +19,7 @@ public class Main {
     public static void main(String[] args) {
        Person tp, tp1, tp2, tp3, tp4;
        ArrayList<Person> myPeeps = new ArrayList<>();
+
         tp = new Person("Ricardo Jiminez", LocalDate.of(1990, Month.APRIL, 22), Person.Sex.MALE, "RickyBaby@gmail.com");
         tp1 = new Person("Sarah Jiminez", LocalDate.of(1970, Month.AUGUST, 12), Person.Sex.FEMALE, "SarahBaby@gmail.com");
         tp2 = new Person("Martha Stewart", LocalDate.of(1980, Month.JULY, 18), Person.Sex.MALE, "CookBaby@gmail.com");
@@ -34,9 +34,8 @@ public class Main {
 
 
         //Example of a local class
-
         class checkForOver18 implements CheckPerson {
-            @Override
+            @Override  //Function we're implementing from the Interface below
             public Boolean test(Person person) {
                 return person.getAge() >= 18;
             }
@@ -44,6 +43,17 @@ public class Main {
         printPersons(myPeeps, new checkForOver18());
 
 
+        //Example using an anonymous class
+        printPersons(myPeeps, new CheckPerson() {
+            @Override // Function we're implementing from the interface below
+            public Boolean test(Person person) {
+                return person.getAge() >= 18;
+            }
+        });
+
+
+        //Example using an lambdas
+        printPersons(myPeeps, person -> person.getAge() >= 45);
 
     }
 

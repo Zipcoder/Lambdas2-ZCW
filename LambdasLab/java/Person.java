@@ -80,6 +80,8 @@ public class Person {
 
 
     public void printPerson() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(String.format("Person Object{ Name: %s, Birthday: %s, Gender: %s, EmailAddress: %s}\n", name, birthday, gender, emailAddress));
         System.out.println(String.format("Person Object{ Name: %s, Birthday: %s, Gender: %s, EmailAddress: %s}\n", name, birthday, gender, emailAddress));
     }
 
