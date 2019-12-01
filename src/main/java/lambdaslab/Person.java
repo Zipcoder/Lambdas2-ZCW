@@ -22,6 +22,22 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
+    public Person (String name, Sex gender, LocalDate birthday) {
+        this.name = name;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.emailAddress = name.split(" ")[0] + "@email.com";
+    }
+
+    public Person(String name, Sex gender, Integer yyyy, Integer mm, Integer dd) {
+        this(name, gender, LocalDate.of(yyyy,mm,dd));
+    }
+
+    public Person(String name, Sex gender, Integer yyyy, Integer mm, Integer dd, Boolean test) {
+        this(name, gender, LocalDate.of(yyyy,mm,dd));
+        this.test = test;
+    }
+
     public Person (String name, Sex gender, LocalDate birthday, String emailAddress, Boolean test) {
         this(name, gender, birthday, emailAddress);
         this.test = test;
