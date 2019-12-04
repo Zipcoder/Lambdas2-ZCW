@@ -1,6 +1,6 @@
 package lambdaslab;
 
-public class Check implements lambdaslab.CheckPerson {
+public class Check implements CheckPerson {
     Integer method;
 
     public Check(Integer method) {

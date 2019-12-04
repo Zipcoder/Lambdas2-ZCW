@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Person {
     public enum Sex {
-        MALE, FEMALE;
+        MALE, FEMALE
     }
 
     String name;

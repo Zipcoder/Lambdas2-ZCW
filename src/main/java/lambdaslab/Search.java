@@ -35,4 +35,33 @@ public class Search {
                 });
         return out.toString();
     }
+
+    // Example using Local Class
+    static class CheckAge implements CheckPerson {
+        @Override
+        public Boolean test(Person person) {
+            return (person.getAge() >= 42);
+        }
+    }
+
+    public static String exWithLocalClass(List<Person> roster) {
+        return printPersons(roster, new CheckAge());
+    }
+
+    public static String exWithLambdas(List<Person> roster) {
+        return printPersons(roster, person -> person.getAge() >= 42);
+    }
+
+    public static String exWithAnonClass(List<Person> roster) {
+        return printPersons(roster, new CheckPerson() {
+            @Override
+            public Boolean test(Person p) {
+                return p.getGender().equals(Person.Sex.MALE);
+            }
+        });
+    }
+
+
+
+
 }

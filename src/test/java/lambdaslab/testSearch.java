@@ -16,6 +16,63 @@ public class testSearch {
     }
 
     @Test
+    public void testExWithLocalClass() {
+        // get Persons with age >= 42
+        String actual = Search.exWithLocalClass(roster);
+        String expected = "\n" +
+                "Person:\n" +
+                "\tName:\t\tKai\n" +
+                "\tSex:\t\tFEMALE\n" +
+                "\tBirthday:\t04-02-1970\n" +
+                "\tEmail:\t\tKai@email.com\n" +
+                "\n" +
+                "Person:\n" +
+                "\tName:\t\tRyan\n" +
+                "\tSex:\t\tMALE\n" +
+                "\tBirthday:\t02-29-1960\n" +
+                "\tEmail:\t\tRyan@email.com\n";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testExWithLambdas() {
+        // get Persons with age >= 42
+        String actual = Search.exWithLambdas(roster);
+        String expected = "\n" +
+                "Person:\n" +
+                "\tName:\t\tKai\n" +
+                "\tSex:\t\tFEMALE\n" +
+                "\tBirthday:\t04-02-1970\n" +
+                "\tEmail:\t\tKai@email.com\n" +
+                "\n" +
+                "Person:\n" +
+                "\tName:\t\tRyan\n" +
+                "\tSex:\t\tMALE\n" +
+                "\tBirthday:\t02-29-1960\n" +
+                "\tEmail:\t\tRyan@email.com\n";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testExWithAnonClass() {
+        // get Persons with gender MALE
+        String actual = Search.exWithAnonClass(roster);
+        String expected = "\n" +
+                "Person:\n" +
+                "\tName:\t\tWes\n" +
+                "\tSex:\t\tMALE\n" +
+                "\tBirthday:\t05-22-1980\n" +
+                "\tEmail:\t\tWes@email.com\n" +
+                "\n" +
+                "Person:\n" +
+                "\tName:\t\tRyan\n" +
+                "\tSex:\t\tMALE\n" +
+                "\tBirthday:\t02-29-1960\n" +
+                "\tEmail:\t\tRyan@email.com\n";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testPrintPersonsOlderThan() {
         Integer actual = Search.printPersonsOlderThan(roster, 40).length();
         Integer expected = 162;
@@ -42,4 +99,5 @@ public class testSearch {
         Integer expected = 160;
         Assert.assertEquals(expected, actual);
     }
+
 }
