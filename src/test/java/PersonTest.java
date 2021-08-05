@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class PersonTest {
 
@@ -13,7 +12,7 @@ public class PersonTest {
         Person.Sex sex = Person.Sex.MALE;
         LocalDate birthday = LocalDate.of(1994,03, 04);
         String emailaddress = "me@whatever.com";
-        Person person = new Person(name, sex, birthday, emailaddress);
+        Person person = new PersonBuilder().setName(name).setSex(sex).setBirthday(birthday).setEmailAdress(emailaddress).createPerson();
         int expected = 27;
 
         //when

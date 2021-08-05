@@ -17,6 +17,10 @@ public class SocialApp implements CheckPerson{
         return false;
     }
 
+    public void addUser(Person user){
+        roster.add(user);
+    }
+
     public static void printPersonsOlderThan(List<Person> roster, int age) {
         Predicate<Person> checkAge = p -> p.getAge() > age;
         roster.stream().filter(checkAge).forEach(Person::printPerson);

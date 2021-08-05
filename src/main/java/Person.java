@@ -9,7 +9,7 @@ public class Person {
     Sex gender;
     String emailAddress;
 
-    public Person(String name, Sex sex, LocalDate birthday, String emailAdress) {
+    public Person(String name, Sex sex, LocalDate birthday, String emailAddress) {
         this.name = name;
         this.gender= sex;
         this.birthday = birthday;
