@@ -3,7 +3,7 @@ import java.time.LocalDate;
 public class PersonBuilder {
     private String name;
     private Person.Sex sex;
-    private LocalDate birthday;
+    private LocalDate birthday = LocalDate.of(1990, 1, 1);
     private String emailAddress;
 
     public PersonBuilder setName(String name) {
@@ -21,7 +21,7 @@ public class PersonBuilder {
         return this;
     }
 
-    public PersonBuilder setEmailAdress(String emailAddress) {
+    public PersonBuilder setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
         return this;
     }
