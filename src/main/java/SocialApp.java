@@ -12,9 +12,20 @@ public class SocialApp{
     }
 
 
-    interface CheckPerson {
-        boolean test (Person p);
-    }
+    interface Checker extends CheckPerson {
+
+        boolean test(Person p);
+
+
+        static boolean testMale(Person p){
+            return p.getGender() == Person.Sex.MALE;
+            }
+
+        static boolean testFemale(Person p){
+            return p.getGender()== Person.Sex.FEMALE;
+        }
+        }
+
 
 
     public void addUser(Person user){
@@ -30,4 +41,19 @@ public class SocialApp{
         Predicate<Person> range = p -> low <= p.getAge() && p.getAge() < high;
         roster.stream().filter(range).forEach(Person::printPerson);
     }
+
+    public static void printPersonsFemale( List<Person> roster
+//            List<Person> roster, Checker tester
+    ) {
+        Predicate<Person> checkFem = Checker::testFemale;
+        roster.stream().filter(checkFem).forEach(Person::printPerson);
+    }
+
+    public static void printMales21AndUp(List<Person> roster){
+        Predicate<Person> checkMale = Checker::testMale;
+        Predicate<Person> checkAge = p-> p.getAge() > 21;
+
+        roster.stream().filter(checkMale).filter(checkAge).forEach(Person::printPerson);
+    }
+
 }

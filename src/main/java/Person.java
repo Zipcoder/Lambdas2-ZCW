@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
+import java.util.function.Predicate;
 
 public class Person {
 
@@ -65,7 +66,7 @@ public class Person {
         System.out.println(person);
     }
 
-    public static void printPersonWithAgeRange(){}
+
 
     @Override
     public String toString() {

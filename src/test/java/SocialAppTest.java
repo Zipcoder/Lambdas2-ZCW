@@ -69,4 +69,52 @@ public class SocialAppTest {
         app.printPersonsWithinAgeRange(app.getList(), 30, 40);
 
     }
+
+    @Test
+    public void filterByGender(){
+        //given
+        SocialApp app = new SocialApp();
+        String name = "Roy";
+        Person.Sex sex = Person.Sex.MALE;
+        LocalDate birthday = LocalDate.of(1994, 03, 04);
+        String emailaddress = "me@whatever.com";
+        Person user1 = new PersonBuilder().setName(name).setSex(sex).setBirthday(birthday).setEmailAddress(emailaddress).createPerson();
+        Person user2 = new PersonBuilder().setName("Jim").setSex(Person.Sex.MALE).setBirthday(LocalDate.of(1987, 10, 13)).setEmailAddress(emailaddress).createPerson();
+        Person user3 = new PersonBuilder().setName("Pam").setSex(Person.Sex.FEMALE).createPerson();
+
+        //when
+        app.addUser(user1);
+        app.addUser(user2);
+        app.addUser(user3);
+        int actual = app.roster.size();
+
+        //then
+        Assert.assertEquals(3, actual);
+        app.printPersonsFemale(app.getList());
+
+    }
+
+    @Test
+    public void filterByGenderAndAge(){
+        //given
+        SocialApp app = new SocialApp();
+        String name = "Roy";
+        Person.Sex sex = Person.Sex.MALE;
+        LocalDate birthday = LocalDate.of(1994, 03, 04);
+        String emailaddress = "me@whatever.com";
+        Person user1 = new PersonBuilder().setName(name).setSex(sex).setBirthday(birthday).setEmailAddress(emailaddress).createPerson();
+        Person user2 = new PersonBuilder().setName("Jim").setSex(Person.Sex.MALE).setBirthday(LocalDate.of(1987, 10, 13)).setEmailAddress(emailaddress).createPerson();
+        Person user3 = new PersonBuilder().setName("Pam").setSex(Person.Sex.FEMALE).createPerson();
+
+        //when
+        app.addUser(user1);
+        app.addUser(user2);
+        app.addUser(user3);
+        int actual = app.roster.size();
+
+        //then
+        Assert.assertEquals(3, actual);
+        app.printMales21AndUp(app.getList());
+
+    }
 }
