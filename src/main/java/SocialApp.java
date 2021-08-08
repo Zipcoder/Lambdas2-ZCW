@@ -56,4 +56,25 @@ public class SocialApp{
         roster.stream().filter(checkMale).filter(checkAge).forEach(Person::printPerson);
     }
 
+    public static void printFemales21AndUp(List<Person> roster){
+        Predicate<Person> checkMale = Checker::testFemale;
+        Predicate<Person> checkAge = p-> p.getAge() > 21;
+
+        roster.stream().filter(checkMale).filter(checkAge).forEach(Person::printPerson);
+    }
+
+    public static void printFemalesBetweenAges(List<Person> roster, int low, int high){
+        Predicate<Person> checkFem = Checker::testFemale;
+        Predicate<Person> range = p -> low <= p.getAge() && p.getAge() < high;
+        roster.stream().filter(checkFem).filter(range).forEach(Person::printPerson);
+
+    }
+
+    public static void printMalesBetweenAges(List<Person> roster, int low, int high){
+        Predicate<Person> checkMale = Checker::testMale;
+        Predicate<Person> range = p -> low <= p.getAge() && p.getAge() < high;
+        roster.stream().filter(checkMale).filter(range).forEach(Person::printPerson);
+
+    }
+
 }
